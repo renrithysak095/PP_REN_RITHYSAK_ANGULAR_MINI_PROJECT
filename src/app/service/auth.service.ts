@@ -3,7 +3,7 @@ import { DataService } from './data.service';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { IAuth } from '../interface/auth';
 import { catchError, retry, throwError } from 'rxjs';
-import { filter, map } from 'rxjs/operators'
+import { map } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -21,14 +21,6 @@ export class AuthService{
         console.error(error);
         return throwError(error);
       }));
-  }
-
-  login() {
-    this.isAuthorized = true;
-  }
-
-  getIsAuthorized() {
-    return this.isAuthorized;
   }
 
 

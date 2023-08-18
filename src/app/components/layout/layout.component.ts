@@ -6,6 +6,7 @@ import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { IBook } from 'src/app/interface/ibook';
 import { BookService } from 'src/app/service/book.service';
 import { ModalComponent } from '../modal/modal.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-layout',
@@ -30,7 +31,7 @@ export class LayoutComponent implements OnInit{
   _searchBook!: string
   searchInputSubject = new Subject<string>();
 
-  constructor(public dialog: MatDialog,private service:BookService, private router: Router, private route: ActivatedRoute){
+  constructor(private toastr: ToastrService,public dialog: MatDialog,private service:BookService, private router: Router, private route: ActivatedRoute){
     this.searchInputSubject.pipe(
       debounceTime(300),
       distinctUntilChanged()
@@ -78,6 +79,7 @@ export class LayoutComponent implements OnInit{
   deleteBook(id:number){
     this.service.deleteBook(id).subscribe();
     this.getListBook();
+    this.toastr.success('Deleted sucessfully')
     this._defaultCard = true
     this._category = 'default'
   }

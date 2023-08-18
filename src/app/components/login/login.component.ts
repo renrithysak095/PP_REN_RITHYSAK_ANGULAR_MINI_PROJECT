@@ -35,8 +35,6 @@ export class LoginComponent {
     this._authService.getAuth().subscribe({
       next: (user) => {
           this._authService.isLoggedIn(_userInfo).subscribe();
-          this._authService.isAuthorized = true;
-          this._authService.login()
           localStorage.setItem('isAuthorized', 'staticToken')
           this.toastr.success('Successfully');
           this.router.navigate(['/'])

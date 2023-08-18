@@ -11,19 +11,20 @@ export class NavbarComponent implements DoCheck{
 
   _isLogin!:boolean
 
-  constructor(private router: Router,private authService: AuthService){}
+  constructor(private router: Router){}
 
   ngDoCheck(): void {
-    this._isLogin = this.authService.getIsAuthorized();
+    if(localStorage.getItem('isAuthorized') !== null){
+      this._isLogin = true
+    }
   }
-  
+
   goBook(){
     this.router.navigate(['/books'])
   }
 
   isLogout(){
     this._isLogin = false
-    this.authService.isAuthorized = false
     localStorage.removeItem('isAuthorized');
   }
 
