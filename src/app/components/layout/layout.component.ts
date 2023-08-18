@@ -49,6 +49,7 @@ export class LayoutComponent implements OnInit{
 
         this._listBooks = val
         this.maxArrayLength = val.length
+        
         const uniqueCategories = new Set<string>();
         this._listBooks.forEach(res => {
           uniqueCategories.add(res.category);

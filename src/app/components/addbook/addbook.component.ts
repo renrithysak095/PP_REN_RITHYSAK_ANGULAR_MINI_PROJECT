@@ -13,6 +13,7 @@ export class AddbookComponent {
 
   reactiveForm!: FormGroup;
   _category!: any[]
+  _listCategory!: any[]
 
   constructor(private toastr: ToastrService,private fb: FormBuilder, private _service: BookService, private router: Router){
     this.reactiveForm = this.fb.group(
@@ -26,6 +27,15 @@ export class AddbookComponent {
     this._service.getBook().subscribe({
       next: (val)=>{
         this._category = val
+
+        const uniqueCategories = new Set<string>();
+        this._category.forEach(res => {
+          uniqueCategories.add(res.category);
+        });
+        const uniqueCategoriesArray = Array.from(uniqueCategories);
+        this._listCategory = uniqueCategoriesArray.map(category => ({ 'category': category }));
+       
+
       }
     })
     
