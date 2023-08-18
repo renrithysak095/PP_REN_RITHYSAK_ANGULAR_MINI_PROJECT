@@ -105,6 +105,7 @@
                 <!-- Button -->
                 <button
                 (click)="login()" 
+                [disabled]="this.reactiveForm.invalid"
                 type="button" class=" text-white bg-[#1B3764] hover:text-yellow-400 focus:ring-4 focus:ring-blue-300 font-medium rounded-3xl text-sm w-[80%] mt-4 p-2.5 mr-2 mb-2 ">Login</button>
                 </form>
                 

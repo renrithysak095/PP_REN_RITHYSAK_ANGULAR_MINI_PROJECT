@@ -34,18 +34,13 @@ export class LoginComponent {
     let _userInfo = this.reactiveForm.value
     this._authService.getAuth().subscribe({
       next: (user) => {
-        if(user.email !== this.reactiveForm.value.email || user.password !== this.reactiveForm.value.password){
-          this._authService.isAuthorized = false
-          this.router.navigate(['/login'])
-          this.toastr.error('Failed to login');
-        }else{
           this._authService.isLoggedIn(_userInfo).subscribe();
           this._authService.isAuthorized = true;
           this._authService.login()
           localStorage.setItem('isAuthorized', 'staticToken')
           this.toastr.success('Successfully');
           this.router.navigate(['/'])
-        }
+        
       }
     })
   }
