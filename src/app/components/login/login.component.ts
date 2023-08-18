@@ -31,10 +31,8 @@ export class LoginComponent {
 
   login(){
 
-    let _userInfo = this.reactiveForm.value
     this._authService.getAuth().subscribe({
       next: (user) => {
-          this._authService.isLoggedIn(_userInfo).subscribe();
           localStorage.setItem('isAuthorized', 'staticToken')
           this.toastr.success('Successfully');
           this.router.navigate(['/'])

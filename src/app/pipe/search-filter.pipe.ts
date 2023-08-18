@@ -9,7 +9,6 @@ export class SearchFilterPipe implements PipeTransform {
     if (!searchTerm) {
       return books;
     }
-
     const filteredBooks = books.filter(book => book.category.toLowerCase().startsWith(searchTerm.toLowerCase()));
     return filteredBooks;
   }

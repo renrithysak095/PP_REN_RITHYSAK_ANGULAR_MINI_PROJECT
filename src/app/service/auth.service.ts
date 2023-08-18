@@ -3,7 +3,6 @@ import { DataService } from './data.service';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { IAuth } from '../interface/auth';
 import { catchError, retry, throwError } from 'rxjs';
-import { map } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -22,22 +21,6 @@ export class AuthService{
         return throwError(error);
       }));
   }
-
-
-  isLoggedIn(_user: IAuth){
-    return this.http.post<IAuth>(this.baseURL,_user).pipe(
-
-      map((res) => console.log("Checking: ", res)),
-
-      retry(2),
-      catchError((error: HttpErrorResponse) => {
-        console.error(error);
-        return throwError(error);
-      })
-      
-      );
-  }
-
 
 
   
