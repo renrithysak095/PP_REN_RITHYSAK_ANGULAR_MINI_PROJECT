@@ -1,0 +1,91 @@
+<div class="flex flex-col">
+
+    <div 
+        style="background-image: url('../../../assets/images/HEADER.svg')"
+        class="bg-no-repeat w-full bg-cover h-[300px]">
+
+        <button (click)="back()"  class="ml-20 mt-20">
+            <svg xmlns="http://www.w3.org/2000/svg" height="2.5em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+        </button>
+
+    </div>
+
+
+    <div class="bg-white w-full h-auto flex flex-col justify-center items-center"> 
+
+        <form class="w-full flex flex-col justify-center items-center" [formGroup]="reactiveForm" (ngSubmit)="addNewBook()">
+       
+        <div class="bg-[#F5F6F8] border border-gray-200 rounded-lg shadow w-[80%] h-auto -mt-[130px] py-16">
+
+            <div class="text-center text-[50px] font-bold">Add New Book</div>
+            <!-- Pic with Form -->
+
+            <div class="flex flex-row mt-8 w-[80%] justify-center items-center m-auto gap-8">
+                <!-- Upload -->
+                <div class="w-[30%] h-[300px] border border-gray-200 shadow flex flex-col justify-center items-center m-auto">
+
+                    <div 
+                    style="background-image: url('https://i.pinimg.com/564x/9d/39/1d/9d391d44aa8a3e5a81d8a54571e09605.jpg')"
+                    class="w-[80%] h-[80%]  bg-cover">
+                    </div>
+
+                </div>
+
+
+                <div class="w-[70%] h-[300px]  flex flex-col justify-start items-center">
+
+                        <!-- Input Email -->
+                        <div class="relative mt-8 w-[80%]">
+                            
+                            <label for="countries" class="font-bold block mb-2 text-sm text-gray-900 dark:text-white">Title</label>
+                            <input formControlName="title"  type="text" id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Title">
+                        </div>
+        
+                        <!-- Input Password -->
+                        <div class="relative mt-2 w-[80%]">
+
+                            <label for="countries" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Author</label>
+                            <input
+                                  formControlName="author"
+                                  id="input-group-1"
+                                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                  placeholder="Author"
+                                >
+                                   
+                        </div>
+
+
+                        <div class="relative mt-2 w-[80%]">
+                            
+                             <!-- Category -->
+                                
+                            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
+                            <select id="countries" formControlName="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option class="text-black" *ngFor="let opt of _category " value="{{opt.title}}">{{opt.title}}</option>
+                             
+                             </select>
+                                   
+                        </div>
+
+                               
+
+                </div>
+
+            </div>
+
+            <div class="mt-8 w-[80%] flex flex-col justify-center items-start m-auto">
+                <p class="font-bold">Description</p>
+                <div class="w-full h-auto mt-4 ">
+                    <textarea id="message" formControlName="description" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter a description"></textarea>
+                </div>
+                <button 
+                [disabled]="this.reactiveForm.invalid"
+                class="bg-[#1B3764] text-white py-4 px-8 rounded-xl mt-4 hover:text-yellow-300">Add New Book</button>
+            </div>
+        </div>
+    </form>
+
+
+    </div>
+
+</div>

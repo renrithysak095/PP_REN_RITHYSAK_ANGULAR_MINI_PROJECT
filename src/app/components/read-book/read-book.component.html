@@ -1,0 +1,49 @@
+<div class="w-screen h-auto flex flex-col bg-[#F5F6F8]">
+
+    <!-- Header -->
+    <div 
+        style="background-image: url('../../../assets/images/HEADER.svg')"
+        class="absolute bg-no-repeat w-full bg-cover h-[300px]">
+
+        <button (click)="back()"  class="ml-20 mt-20">
+            <svg xmlns="http://www.w3.org/2000/svg" height="2.5em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+        </button>
+    </div>
+
+    <div class="m-auto z-10  mt-[300px] mb-20 bg-[#F5F6F8] h-auto w-full flex flex-col items-center">
+
+        <div class="bg-white -mt-20 w-[80%] py-20 h-screen ">
+
+            <div 
+            class="w-[200px] border-[3.5px] border-[#C8CDD5] -mt-40 ml-20 -mb-10 h-[300px] shadow-2xl "> 
+                <img 
+                class="w-full h-full object-cover"
+                src="{{detail.bookImage}}" alt="">
+            
+            </div>
+
+            <div class="ml-80 -mt-[200px]">
+                <div class="text-[40px] font-bold">{{detail.title}}</div>
+            </div>
+
+            <div class="ml-80 mt-2">
+                <div class="text-[20px] font-bold text-[#FFCA42]">By {{detail.author}}</div>
+                <div class="text-[12px] font-bold text-gray-500">{{detail.category}}</div>
+            </div>
+
+            <div class="w-[80%] h-auto flex flex-col  m-auto">
+                <div class="flex flex-col ">
+
+                    <div class="text-justify pt-24 mt-12 text-[24px] font-bold">Description</div>
+    
+                        <div class="mt-6 text-justify">
+                            {{detail.description}}
+                        </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

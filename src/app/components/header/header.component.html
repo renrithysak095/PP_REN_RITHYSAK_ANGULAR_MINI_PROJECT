@@ -1,0 +1,20 @@
+<ng-container>
+    <!-- Div Headers -->
+    <div class="bg-white h-[75%] grid grid-cols-2">
+        <div class="col-span-1 flex justify-center items-center m-auto">
+            <ng-content select=".title"></ng-content>
+        </div>
+
+        <div
+        class="flex justify-end items-center col-span-1 bg-cover"
+        style="background-image: url('../../../assets/images/bluebg.svg')"
+        >
+        <div class="flex">
+
+            <ng-content select=".header"></ng-content>
+
+            <img class="w-[150px]" src="../../../assets/images/circle.svg" alt="" />
+        </div>
+        </div>
+    </div>
+</ng-container>

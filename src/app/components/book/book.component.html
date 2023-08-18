@@ -1,0 +1,85 @@
+<!-- <p>book works!</p>
+<button (click)="addNewBook()">Add</button><br>
+<button (click)="updateBookDetail()">Update</button><br>
+<button (click)="deleteBook()">Delete</button><br> -->
+
+
+<div class="flex flex-col bg-[#F3F4F6]">
+
+    <app-navbar></app-navbar>
+    <div>
+        <app-header>
+            <div class="title">
+                <p class="text-[56px] font-bold">READ AND ADD</p>
+                <p class="text-[56px] font-bold">YOUR INSIGHT</p>
+                <p class="text-[20px]">Find Your Favorite Book And Reed It Here For Free</p>
+            </div>
+
+            <div class="header">
+                <img
+                class="w-[400px] h-[371px] mr-12 mt-48"
+                src="../../../assets/images/Group.svg"
+                alt=""
+                />
+            </div>
+        </app-header>
+    </div>
+
+    <div class="flex justify-center items-center mt-10">
+
+        <div class="bg-white shadow rounded-md w-[80%] h-auto">
+            <div class="text-center font-bold text-[48px] mt-8">
+                This new story
+            </div>
+
+            <div class="flex flex-col mt-12">
+                <div class=" h-auto grid grid-cols-2 m-20 -mt-12 gap-12">
+                    <ng-container *ngFor="let details of _listBooks">
+                        <div class="col-span-1 mt-8 ">                       
+                            <!-- Card -->
+                            <div class="bg-transparent shadow rounded-r-2xl">
+                                <div class="flex flex-cols-2 w-full h-auto bg-white rounded-r-2xl">
+                                    <!-- Left Card -->
+                                    <div class="col-span-1 w-[35%] border-[3.5px] border-[#C8CDD5] bg-yellow-300">
+                                        <img 
+                                        class="w-full h-full object-cover"
+                                        src="https://i.pinimg.com/564x/44/57/ac/4457ac33a6caef3f96767eb60111e7c3.jpg" alt="">
+                                    </div>
+                                    <!-- Right Card -->
+                                    <div class="col-span-1 w-[65%] flex justify-center border-b-2 border-[#C8CDD5] bg-white rounded-r-2xl">
+                                        <!-- Child -->  
+                                        <div class="flex flex-col justify-center m-8">
+                                            <!-- Tittle -->
+                                            <div class="line-clamp-1 text-3xl text-[#1B3764]">
+                                                {{details.title}}
+                                            </div>
+                                            <!-- Author -->
+                                            <div class="text-[#FFCA42]">
+                                                {{details.author}}
+                                            </div>
+                                            <!-- Description -->
+                                            <div class="line-clamp-3 text-[#B0B3B8]">
+                                                {{details.description}}
+                                            </div>
+                                            <!-- Action -->
+                                            <div class="mt-4">
+                                                <button (click)="viewBook(details.id)" type="button" class="text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900">View</button>
+                                                <button (click)="openDialog(details)" type="button" class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">Edit</button>
+                                                <button (click)="deleteBook(details.id)" type="button" class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Delete</button>
+                                            </div>
+                                        </div>
+                                    </div>    
+                                </div>
+                            
+                            </div>
+    
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
