@@ -26,6 +26,7 @@ export class NavbarComponent implements DoCheck{
   isLogout(){
     this._isLogin = false
     localStorage.removeItem('isAuthorized');
+    this.router.navigate(['/'])
   }
 
 
