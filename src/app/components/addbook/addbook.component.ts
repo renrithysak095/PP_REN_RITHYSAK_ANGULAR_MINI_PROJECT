@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { BookService } from 'src/app/service/book.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class AddbookComponent {
   reactiveForm!: FormGroup;
   _category!: any[]
 
-  constructor(private fb: FormBuilder, private _service: BookService, private router: Router){
+  constructor(private toastr: ToastrService,private fb: FormBuilder, private _service: BookService, private router: Router){
     this.reactiveForm = this.fb.group(
       {
         title: new FormControl(null,Validators.required),
@@ -42,6 +43,7 @@ export class AddbookComponent {
       }
     })
     this.router.navigate(['/books'])
+    this.toastr.success('Book has added successfully')
   }
 
 }
