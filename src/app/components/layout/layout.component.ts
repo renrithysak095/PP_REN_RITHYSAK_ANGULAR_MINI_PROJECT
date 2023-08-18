@@ -73,20 +73,6 @@ export class LayoutComponent implements OnInit{
     this.getListBook();
   }
 
-  // Update Book
-  updateBookDetail(){
-    let _staticData = {
-      id: 3,
-      title: 'Update hz',
-      description: 'Lorem ipsum . Voluptatem excepturi magnam nostrum dolore recusandae',
-      bookImage: 'https://i.pinimg.com/564x/cb/80/99/cb80993dfe4c5a1dd5ee19f3a6c9284e.jpg',
-      author: 'Seaman Cap',
-      category: 'Update'
-    } ;
-
-    this.service.updateBook(_staticData).subscribe();
-    this.getListBook();
-  }
 
   // Delete Book
   deleteBook(id:number){
